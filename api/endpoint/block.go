@@ -37,3 +37,10 @@ func GetBlock(c *gin.Context, blockAPI blockatlas.BlockAPI) {
 
 	c.JSON(http.StatusOK, &block)
 }
+func GetLastBlock(c *gin.Context, blockAPI blockatlas.BlockAPI) {
+	blockNumber, err := blockAPI.CurrentBlockNumber()
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusNotFound, errorResponse(errors.New("last block not found")))
+	}
+	c.JSON(http.StatusOK, blockNumber)
+}

@@ -1,6 +1,6 @@
-# Block Atlas by Trust Wallet
+# Block Atlas by Trust Wallet 
 
-THIS REPO IS NO LONGER MAINTAINED
+THIS REPO IS Maintained by [@mamadeusia](https://github.com/mamadeusia) 
 
 ---
 
@@ -47,8 +47,9 @@ New Subscriptions --(Rabbit MQ)--> Subscriber --> DB
                       Parser  --(Rabbit MQ)--> Notifier --(Rabbit MQ)--> Notifier Consumer --> User
 
 ```
+in other word the structure of project consists of three part , Api , parser and consumer , parser connects to nodes and check if there is new block genereted or not , if new block found send it to consumer service to parse transactions of the last block and check for notification related about our addresses that we set in DB before , after check send notification to rabbit to consume it in another service . 
+![blockatlas architecure](./docs/blockatlasArchitecture.png)
 
-The whole flow is not available at Atlas repo. We will have integration tests with it. Also there will be examples of all instances soon.
 
 ## Setup
 

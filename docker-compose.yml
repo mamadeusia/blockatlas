@@ -43,9 +43,10 @@ services:
 
   rabbit:
     container_name: rabbit
-    image: rabbitmq
+    image: "rabbitmq:3-management"
     ports:
       - 5672:5672
+      - 15672:15672
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:5672" ]
       interval: 30s
@@ -66,3 +67,13 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: pass
+    ports:
+      - 5050:80
+      - 15432:15432

@@ -44,6 +44,9 @@ func RegisterBlockAPI(router gin.IRouter, api blockatlas.Platform) {
 		router.GET("/v2/"+handle+"/blocks/:block", func(c *gin.Context) {
 			endpoint.GetBlock(c, blockAPI)
 		})
+		router.GET("/v2/"+handle+"/lastblock", func(c *gin.Context) {
+			endpoint.GetLastBlock(c, blockAPI)
+		})
 	}
 }
 
